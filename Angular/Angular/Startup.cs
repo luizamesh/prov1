@@ -1,3 +1,4 @@
+using Angular.Data;
 using Angular.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace Angular
 {
@@ -36,6 +39,8 @@ namespace Angular
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            Initialize(app.ApplicationServices); 
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -70,6 +75,25 @@ namespace Angular
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+
+        public static void Initialize (IServiceProvider service)
+        {
+            using (var serviceScope = service.CreateScope())
+            {
+                var scopeServiceProvider = serviceScope.ServiceProvider;
+                try
+                {
+                    var context = scopeServiceProvider.GetService<EmployeesContext>();
+                    DbInitializer.Initialize(context);
+                }
+                catch (Exception ex)
+                {
+                    var logger = scopeServiceProvider.GetService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while seeding the database");
+                }
+            }
+
         }
     }
 }

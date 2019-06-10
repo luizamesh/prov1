@@ -14,6 +14,7 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { AddEnployeesComponent } from './add-enployees/add-enployees.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 
 
@@ -26,6 +27,7 @@ import { AddEnployeesComponent } from './add-enployees/add-enployees.component';
     CounterComponent,
     FetchDataComponent,
     AddEnployeesComponent,
+    EmployeeListComponent,
 
 
 
