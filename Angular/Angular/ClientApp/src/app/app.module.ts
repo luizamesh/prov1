@@ -47,6 +47,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'add-enployees', component: AddEnployeesComponent },
+      { path: 'enployee-list', component: EmployeeListComponent },
     ])
   ],
   providers: [],

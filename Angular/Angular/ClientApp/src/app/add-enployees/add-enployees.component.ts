@@ -35,7 +35,7 @@ export class AddEnployeesComponent implements OnInit {
   onSubmit(post) {
 
 console.log(post);
-    this.router.navigateByUrl('/fetch-data');
+    this.router.navigateByUrl('/enployee-list');
 
   }
 }
