@@ -29,6 +29,8 @@ namespace Angular
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddDbContext<EmployeesContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("EmployeesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
