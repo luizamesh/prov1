@@ -21,11 +21,11 @@ namespace Angular.Controllers
             if (_context.EmployeeList.Count() == 0)
             {
                 _context.EmployeeList.Add(new Employee
-                    {Id = Guid.NewGuid(), Name = "Mari", Surname = "White", Age = 25, Status = "Working"});
+                    {Id = Guid.NewGuid(), Name = "Mari", Surname = "White"});
                 _context.EmployeeList.Add(new Employee
-                    {Id = Guid.NewGuid(), Name = "Kristo", Surname = "Black", Age = 30, Status = "Vacation"});
+                    {Id = Guid.NewGuid(), Name = "Kristo", Surname = "Black"});
                 _context.EmployeeList.Add(new Employee
-                    {Id = Guid.NewGuid(), Name = "Annabel", Surname = "Yellow", Age = 25, Status = "Maternity leave"});
+                    {Id = Guid.NewGuid(), Name = "Annabel", Surname = "Yellow"});
             }
         }
 

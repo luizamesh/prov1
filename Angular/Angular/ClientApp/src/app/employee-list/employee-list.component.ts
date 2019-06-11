@@ -21,16 +21,14 @@ export class EmployeeListComponent implements OnInit {
   constructor( private http: HttpClient, @Inject('BASE_URL') baseUrl: string)
   {
     this.baseUrl = baseUrl;
-
 }
 
   ngOnInit()
 {
-  this.http.get<Employee[]>(this.baseUrl + 'api/Employee').subscribe(result => {
-      this.dataSource = new MatTableDataSource<Employee>(result);
+  this.http.get<Employee[]>(this.baseUrl + 'api/employee-list').subscribe(result => {
+      this.dataSource = new MatTableDataSource< Employee >( result);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-
     },
     error => console.error(error));
 }
